@@ -12,7 +12,7 @@ var config = {
 };
 router.use('/wx', wechat(config,
     wechat.text(function (message, req, res, next) {
-        console.log(message);
+        console.log(JSON.stringify(req.query));
         res.reply({
             type: "text",
             content: '你发送的是：'+ message.MsgType
