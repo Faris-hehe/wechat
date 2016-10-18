@@ -57,7 +57,7 @@ weixin.textMsg(function(msg) {
     console.log("textMsg received");
     console.log(JSON.stringify(msg));
 
-    var resMsg = {};
+    var resMsg = { };
 
     switch (msg.content) {
         case "文本" :
@@ -116,7 +116,16 @@ weixin.textMsg(function(msg) {
                 msgType : "news",
                 articles : articles,
                 funcFlag : 0
-            }
+            };
+            break;
+        default:
+            resMsg = {
+                fromUserName : msg.toUserName,
+                toUserName : msg.fromUserName,
+                msgType : "text",
+                content : "这是文本回复",
+                funcFlag : 0
+            };
     }
 
     weixin.sendMsg(resMsg);
