@@ -139,7 +139,7 @@ weixin.imageMsg(function(msg) {
         fromUserName : msg.toUserName,
         toUserName : msg.fromUserName,
         msgType : "text",
-        content : "你发的是 " + JSON.stringify(msg),
+        content : "你发的是 " + msg.msgType,
         funcFlag : 0
     };
     weixin.sendMsg(resMsg);
