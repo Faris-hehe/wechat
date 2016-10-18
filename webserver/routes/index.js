@@ -28,13 +28,19 @@ router.get('/', function(req, res, next) {
     var scyptoString=shaObj.getHash('SHA-1', 'HEX');
 
     if(signature == scyptoString){
-        console.log('success');
+        console.log('token succesed');
         res.status(200).send(echostr)
     } else {
-        console.log('fail');
+        console.log('token failed');
         res.status(200).send('token验证失败')
     }
 
 });
+
+router.post('/', function(req, res, next) {
+    res.send(req.query)
+});
+
+
 
 module.exports = router;
