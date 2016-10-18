@@ -29,7 +29,7 @@ router.get('/', function(req, res, next) {
 
     if(signature == scyptoString){
         console.log('success');
-        res.status(200).send('token验证成功')
+        res.status(200).send(echostr)
     } else {
         console.log('fail');
         res.status(200).send('token验证失败')
