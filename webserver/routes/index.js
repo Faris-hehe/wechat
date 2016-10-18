@@ -53,11 +53,11 @@ router.get('/',function(req,res,next){
     }
 });
 
+var resMsg = { };
+
 weixin.textMsg(function(msg) {
     console.log("textMsg received");
     console.log(JSON.stringify(msg));
-
-    var resMsg = { };
 
     switch (msg.content) {
         case "文本" :
@@ -135,6 +135,15 @@ weixin.textMsg(function(msg) {
 weixin.imageMsg(function(msg) {
     console.log("imageMsg received");
     console.log(JSON.stringify(msg));
+    resMsg = {
+        fromUserName : msg.toUserName,
+        toUserName : msg.fromUserName,
+        msgType : "text",
+        content : "你发的是 " + JSON.stringify(msg),
+        funcFlag : 0
+    };
+    weixin.sendMsg(resMsg);
+
 });
 
 // 监听位置消息
