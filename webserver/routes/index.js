@@ -10,7 +10,7 @@ var config = {
     appid: 'wx0d38adaae0ca40d3',
     encodingAESKey: 'GNHJQ1ne0uY78AOWb8aKfNBNAmMs3nxHtKODbrRl4nd'
 };
-router.use('/', wechat(config).text(function (message, req, res, next) {
+router.use('/wx', wechat(config).text(function (message, req, res, next) {
     console.log(message);
     res.reply({
         type: "text",
