@@ -5,17 +5,17 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    console.log(req.query);
     var token = 'hellowechat';
     var signature = req.query.signature;
     var timestamp = req.query.timestamp;
     var echostr = req.query.echostr;
     var nonce = req.query.nonce;
 
-    console.log( signature );
-    console.log( timestamp );
-    console.log( echostr );
-    console.log( nonce );
+    console.log(req.query);
+    console.log( 'signature:'+signature );
+    console.log( 'timestamp:'+timestamp );
+    console.log( 'echostr:'+echostr );
+    console.log( 'nonce:'+nonce );
 
     var oriArray = [];
     oriArray[0] = token;
@@ -28,8 +28,10 @@ router.get('/', function(req, res, next) {
     var scyptoString=shaObj.getHash('SHA-1', 'HEX');
 
     if(signature == scyptoString){
+        console.log('success');
         res.status(200).send('token验证成功')
     } else {
+        console.log('fail');
         res.status(200).send('token验证失败')
     }
 
