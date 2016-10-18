@@ -11,26 +11,31 @@ var config = {
     encodingAESKey: 'GNHJQ1ne0uY78AOWb8aKfNBNAmMs3nxHtKODbrRl4nd'
 };
 router.use('/', wechat(config).text(function (message, req, res, next) {
+    console.log(message);
     res.reply({
         type: "text",
         content: '你发送的是：'+ message.MsgType
     });
 }).image(function (message, req, res, next) {
+    console.log(message);
     res.reply({
         type: "text",
         content: '你发送的是：'+ message.MsgType
     });}).voice(function (message, req, res, next) {
 }).video(function (message, req, res, next) {
+    console.log(message);
     res.reply({
         type: "text",
         content: '你发送的是：'+ message.MsgType
     });}).location(function (message, req, res, next) {
 }).link(function (message, req, res, next) {
+    console.log(message);
     res.reply({
         type: "text",
         content: '你发送的是：'+ message.MsgType
     });}).event(function (message, req, res, next) {
 }).device_text(function (message, req, res, next) {
+    console.log(message);
     res.reply({
         type: "text",
         content: '你发送的是：'+ message.MsgType
