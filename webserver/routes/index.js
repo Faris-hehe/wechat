@@ -123,7 +123,7 @@ weixin.textMsg(function(msg) {
                 fromUserName : msg.toUserName,
                 toUserName : msg.fromUserName,
                 msgType : "text",
-                content : "你发的是"+msg.content,
+                content : "你发的是 " + msg.content,
                 funcFlag : 0
             };
     }
