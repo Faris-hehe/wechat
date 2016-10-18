@@ -46,7 +46,7 @@ weixin.token = 'hellowechat';
 
 router.get('/',function(req,res,next){
     if (weixin.checkSignature(req)) {
-        console.log('token验证成功')；
+        console.log('token验证成功')
         res.status(200).send(req.query.echostr);
     } else {
         res.status(200).send('fail');
